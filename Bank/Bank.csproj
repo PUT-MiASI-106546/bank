@@ -46,9 +46,13 @@
     <Compile Include="Account.cs" />
     <Compile Include="AdvancedInterest.cs" />
     <Compile Include="BankManager.cs" />
+    <Compile Include="ChargesReport.cs" />
+    <Compile Include="DepositsReport.cs" />
+    <Compile Include="FullReport.cs" />
     <Compile Include="IInterest.cs" />
     <Compile Include="Interest.cs" />
     <Compile Include="IOperation.cs" />
+    <Compile Include="IReport.cs" />
     <Compile Include="LineInterest.cs" />
     <Compile Include="OperationException.cs" />
     <Compile Include="Owner.cs" />

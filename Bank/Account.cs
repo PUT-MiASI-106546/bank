@@ -39,5 +39,15 @@ namespace Bank
             else
                 Balance += amount;
         }
+
+        public string GetReport(IReport report)
+        {
+            foreach (IOperation operation in Operations)
+            {
+                operation.Accept(report);
+            }
+
+            return report.ReportString;
+        }
     }
 }

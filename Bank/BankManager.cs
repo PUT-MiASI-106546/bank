@@ -66,5 +66,20 @@ namespace Bank
             Transfer transfer = new Transfer(this, account, toAccountNumber, amount);
             transfer.Execute();
         }
+
+        public string CreateFullReport(string accountNumber)
+        {
+            return GetAccount(accountNumber).GetReport(new FullReport());
+        }
+
+        public string CreateChargesReport(string accountNumber)
+        {
+            return GetAccount(accountNumber).GetReport(new ChargesReport());
+        }
+
+        public string CreateDepositsReport(string accountNumber)
+        {
+            return GetAccount(accountNumber).GetReport(new DepositsReport());
+        }
     }
 }

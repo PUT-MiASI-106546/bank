@@ -7,19 +7,24 @@ namespace Bank
 {
     public class Payout : IOperation
     {
-        private Account account;
-        private double amount;
+        public Account Account { get; private set; }
+        public double Amount { get; private set; }
 
         public Payout(Account account, double amount)
         {
-            this.account = account;
-            this.amount = amount;
+            Account = account;
+            Amount = amount;
         }
 
         public void Execute()
         {
-            account.Withdraw(amount);
-            account.Operations.Add(this);
+            Account.Withdraw(Amount);
+            Account.Operations.Add(this);
+        }
+
+        public void Accept(IReport report)
+        {
+            report.Visit(this);
         }
     }
 }

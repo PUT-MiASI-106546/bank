@@ -8,5 +8,6 @@ namespace Bank
     public interface IOperation
     {
         void Execute();
+        void Accept(IReport report);
     }
 }

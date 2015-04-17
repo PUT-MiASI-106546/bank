@@ -5,37 +5,50 @@ using System.Text;
 
 namespace Bank
 {
+    public enum TransferType { Charge, Deposit }
+
     public class Transfer : IOperation
     {
         private BankManager bankManager;
-        private Account account;
-        private string accountNumber;
-        private double amount;
+        public Account FromAccount { get; private set; }
+        public string ToAccountNumber { get; private set; }
+        public double Amount { get; private set; }
+        public TransferType TransferType { get; set; }
 
         public Transfer(BankManager bankManager,  Account account, string accountNumber, double amount)
         {
             this.bankManager = bankManager;
-            this.account = account;
-            this.accountNumber = accountNumber;
-            this.amount = amount;
+            FromAccount = account;
+            ToAccountNumber = accountNumber;
+            Amount = amount;
+            TransferType = Bank.TransferType.Charge;
         }
 
         public void Execute()
         {
-            Account targetAccount = bankManager.GetAccount(accountNumber);
+            Account targetAccount = bankManager.GetAccount(ToAccountNumber);
 
             if (targetAccount != null)
             {
-                account.Withdraw(amount);
-                targetAccount.Deposit(amount);
+                FromAccount.Withdraw(Amount);
+                targetAccount.Deposit(Amount);
+
+                Transfer targetOperationCopy = new Transfer(bankManager, FromAccount, ToAccountNumber, Amount);
+                targetOperationCopy.TransferType = Bank.TransferType.Deposit;
+                targetAccount.Operations.Add(targetOperationCopy);
             }
             else
             {
-                account.Withdraw(amount);
+                FromAccount.Withdraw(Amount);
                 bankManager.PutOutgoingTransfer(this);
             }
 
-            account.Operations.Add(this);
+            FromAccount.Operations.Add(this);
+        }
+
+        public void Accept(IReport report)
+        {
+            report.Visit(this);
         }
     }
 }

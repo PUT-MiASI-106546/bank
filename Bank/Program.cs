@@ -32,6 +32,17 @@ namespace Bank
             bank.CreateTransfer(owner1AccountNum, owner2AccountNum, 500);
             Console.WriteLine("Transfer: owner1's balance: {0}; owner2's balance: {1}", bank.GetAccount(owner1AccountNum).Balance, bank.GetAccount(owner2AccountNum).Balance);
 
+            Console.WriteLine("\nFull report:\n" + bank.CreateFullReport(owner1AccountNum));
+
+            Console.WriteLine("\nCharges report:\n" + bank.CreateChargesReport(owner1AccountNum));
+
+            Console.WriteLine("\nDeposits report:\n" + bank.CreateDepositsReport(owner1AccountNum));
+
+            Console.WriteLine("\nFull report:\n" + bank.CreateFullReport(owner2AccountNum));
+
+            Console.WriteLine("\nCharges report:\n" + bank.CreateChargesReport(owner2AccountNum));
+
+            Console.WriteLine("\nDeposits report:\n" + bank.CreateDepositsReport(owner2AccountNum));
 
             Console.ReadKey();
         }
