@@ -5,15 +5,15 @@ using System.Text;
 
 namespace Bank
 {
-    public class Account
+    public class Account : IAccount
     {
-        public const String bankIdentifier = "1000";
+        private const String bankIdentifier = "1000";
         private Interest interest = new Interest(new LineInterest());
         private static Random randomGenerator = new Random();
 
-        public double Balance { get; set; }
+        public double Balance { get; private set; }
 
-        public String AccountNumber { get; set; }
+        public String AccountNumber { get; private set; }
 
         public List<IOperation> Operations { get; private set; }
 

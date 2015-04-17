@@ -10,12 +10,12 @@ namespace Bank
     public class Transfer : IOperation
     {
         private BankManager bankManager;
-        public Account FromAccount { get; private set; }
+        public IAccount FromAccount { get; private set; }
         public string ToAccountNumber { get; private set; }
         public double Amount { get; private set; }
         public TransferType TransferType { get; set; }
 
-        public Transfer(BankManager bankManager,  Account account, string accountNumber, double amount)
+        public Transfer(BankManager bankManager,  IAccount account, string accountNumber, double amount)
         {
             this.bankManager = bankManager;
             FromAccount = account;
@@ -26,7 +26,7 @@ namespace Bank
 
         public void Execute()
         {
-            Account targetAccount = bankManager.GetAccount(ToAccountNumber);
+            IAccount targetAccount = bankManager.GetAccount(ToAccountNumber);
 
             if (targetAccount != null)
             {

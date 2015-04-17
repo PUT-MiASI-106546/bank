@@ -30,7 +30,7 @@ namespace Bank
         /// </summary>
         /// <param name="accountNumber"></param>
         /// <returns></returns>
-        public Account GetAccount(string accountNumber)
+        public IAccount GetAccount(string accountNumber)
         {
             foreach(Owner owner in owners.Values)
             {
@@ -48,21 +48,21 @@ namespace Bank
 
         public void CreatePayment(string accountNumber, double amount)
         {
-            Account account = GetAccount(accountNumber);
+            IAccount account = GetAccount(accountNumber);
             Payment payment = new Payment(account, amount);
             payment.Execute();
         }
 
         public void CreatePayout(string accountNumber, double amount)
         {
-            Account account = GetAccount(accountNumber);
+            IAccount account = GetAccount(accountNumber);
             Payout payout = new Payout(account, amount);
             payout.Execute();
         }
 
         public void CreateTransfer(string fromAccountNumber, string toAccountNumber, double amount)
         {
-            Account account = GetAccount(fromAccountNumber);
+            IAccount account = GetAccount(fromAccountNumber);
             Transfer transfer = new Transfer(this, account, toAccountNumber, amount);
             transfer.Execute();
         }

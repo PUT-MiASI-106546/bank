@@ -7,10 +7,10 @@ namespace Bank
 {
     public class Payout : IOperation
     {
-        public Account Account { get; private set; }
+        public IAccount Account { get; private set; }
         public double Amount { get; private set; }
 
-        public Payout(Account account, double amount)
+        public Payout(IAccount account, double amount)
         {
             Account = account;
             Amount = amount;

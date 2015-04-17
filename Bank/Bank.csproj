@@ -44,11 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountDecorator.cs" />
     <Compile Include="AdvancedInterest.cs" />
     <Compile Include="BankManager.cs" />
     <Compile Include="ChargesReport.cs" />
+    <Compile Include="DebtAccount.cs" />
     <Compile Include="DepositsReport.cs" />
     <Compile Include="FullReport.cs" />
+    <Compile Include="IAccount.cs" />
     <Compile Include="IInterest.cs" />
     <Compile Include="Interest.cs" />
     <Compile Include="IOperation.cs" />
