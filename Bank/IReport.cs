@@ -12,5 +12,6 @@ namespace Bank
         void Visit(Payment payment);
         void Visit(Payout payout);
         void Visit(Transfer transfer);
+        void Visit(IncomingTransfer incomingTransfer);
     }
 }

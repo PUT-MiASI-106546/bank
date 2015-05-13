@@ -23,5 +23,9 @@ namespace Bank
         {
             ReportString += "Transfer from " + transfer.FromAccount.AccountNumber + " to " + transfer.ToAccountNumber + ", amount: " + transfer.Amount + "\n";
         }
+
+        public void Visit(IncomingTransfer transfer)
+        {
+        }
     }
 }

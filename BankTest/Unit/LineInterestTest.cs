@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Bank;
 
-namespace BankTest
+namespace BankTest.Unit
 {
     [TestClass]
     public class LineInterestTest

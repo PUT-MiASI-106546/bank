@@ -41,18 +41,26 @@ namespace Bank
 
         public override void Deposit(double amount)
         {
-            double addToAvailableDebt = debtLimit - AvailableDebt;
-            double addToBalance = amount - addToAvailableDebt;
-
-            if (addToBalance > 0)
+            if (amount <= 0)
             {
-                AvailableDebt += addToAvailableDebt;
-                base.Deposit(addToBalance);
+                throw new OperationException("Invalid amount.");
             }
             else
             {
-                AvailableDebt += amount;
+                double addToAvailableDebt = debtLimit - AvailableDebt;
+                double addToBalance = amount - addToAvailableDebt;
+
+                if (addToBalance > 0)
+                {
+                    AvailableDebt += addToAvailableDebt;
+                    base.Deposit(addToBalance);
+                }
+                else
+                {
+                    AvailableDebt += amount;
+                }
             }
+            
         }
     }
 }

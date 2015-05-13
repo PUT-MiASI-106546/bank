@@ -7,7 +7,6 @@ namespace Bank
 {
     public class Account : IAccount
     {
-        private const String bankIdentifier = "1000";
         private Interest interest = new Interest(new LineInterest());
         private static Random randomGenerator = new Random();
 
@@ -17,7 +16,7 @@ namespace Bank
 
         public List<IOperation> Operations { get; private set; }
 
-        public Account(String PESEL, double balance = 0)
+        public Account(String PESEL, string bankIdentifier, double balance = 0)
         {
             AccountNumber = bankIdentifier + randomGenerator.Next(10000, 99999).ToString();
             Balance = balance;
@@ -26,7 +25,7 @@ namespace Bank
 
         public void Withdraw(double amount)
         {
-            if (Balance - amount >= 0)
+            if (Balance >= amount)
                 Balance -= amount;
             else
                 throw new OperationException("Account balance is too low.");

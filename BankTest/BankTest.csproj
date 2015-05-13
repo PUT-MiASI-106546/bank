@@ -50,17 +50,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AccountTest.cs" />
-    <Compile Include="AdvancedInterestTest.cs" />
-    <Compile Include="LineInterestTest.cs" />
-    <Compile Include="PaymentTest.cs" />
+    <Compile Include="Unit\AccountTest.cs" />
+    <Compile Include="Unit\AdvancedInterestTest.cs" />
+    <Compile Include="Unit\DebtAccountTest.cs" />
+    <Compile Include="Unit\LineInterestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\OwnerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bank\Bank.csproj">
       <Project>{94c15958-06d3-41ec-bf28-2211676646c4}</Project>
       <Name>Bank</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Integration\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

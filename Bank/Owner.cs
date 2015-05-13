@@ -15,18 +15,21 @@ namespace Bank
 
         public Dictionary<string, IAccount> Accounts { get; private set; }
 
-        public Owner(string firstName, string lastName, string pesel)
+        private string bankIdentifier;
+
+        public Owner(string firstName, string lastName, string pesel, string bankIdentifier)
         {
             FirstName = firstName;
             LastName = lastName;
             PESEL = pesel;
+            this.bankIdentifier = bankIdentifier;
 
             Accounts = new Dictionary<string, IAccount>();
         }
 
         public string OpenAccount()
         {
-            Account newAccount = new Account(PESEL);
+            Account newAccount = new Account(PESEL, bankIdentifier);
             Accounts.Add(newAccount.AccountNumber, newAccount);
 
             return newAccount.AccountNumber;
@@ -34,7 +37,7 @@ namespace Bank
 
         public string OpenDebtAccount(double availableDebt)
         {
-            Account newAccount = new Account(PESEL);
+            Account newAccount = new Account(PESEL, bankIdentifier);
             Accounts.Add(newAccount.AccountNumber, new DebtAccount(newAccount, availableDebt));
 
             return newAccount.AccountNumber;

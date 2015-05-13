@@ -5,15 +5,24 @@ using System.Text;
 
 namespace Bank
 {
-    public class BankManager
+    public class BankManager : IElixirBank
     {
         private Dictionary<string, Owner> owners = new Dictionary<string, Owner>();
         private List<Transfer> outgoingTransfers = new List<Transfer>();
 
-        public void CreateOwner(string firstName, string lastName, string pesel)
+        public string BankIdentifier { get; private set; }
+
+        public BankManager(string bankIdentifier)
         {
-            Owner owner = new Owner(firstName, lastName, pesel);
+            BankIdentifier = bankIdentifier;
+        }
+
+        public Owner CreateOwner(string firstName, string lastName, string pesel)
+        {
+            Owner owner = new Owner(firstName, lastName, pesel, BankIdentifier);
             owners.Add(pesel, owner);
+
+            return owner;
         }
 
         public Owner GetOwner(string pesel)
@@ -80,6 +89,22 @@ namespace Bank
         public string CreateDepositsReport(string accountNumber)
         {
             return GetAccount(accountNumber).GetReport(new DepositsReport());
+        }
+
+        public void ExecuteIncomingTransfers(List<IncomingTransfer> transfers)
+        {
+            foreach (IncomingTransfer transfer in transfers)
+            {
+                transfer.Execute();
+            }
+        }
+
+        public List<Transfer> GetOutgoingTransfers()
+        {
+            List<Transfer> transfers = new List<Transfer>(outgoingTransfers);
+            outgoingTransfers.Clear();
+
+            return transfers;
         }
     }
 }
