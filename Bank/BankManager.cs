@@ -73,7 +73,11 @@ namespace Bank
         {
             IAccount account = GetAccount(fromAccountNumber);
             Transfer transfer = new Transfer(this, account, toAccountNumber, amount);
-            transfer.Execute();
+
+            StandardTransferHandler standardTransferHandler = new StandardTransferHandler();
+            HighTransferHandler highTransferHandler = new HighTransferHandler();
+            standardTransferHandler.Next = highTransferHandler;
+            standardTransferHandler.ProcessTransfer(transfer);
         }
 
         public string CreateFullReport(string accountNumber)

@@ -52,6 +52,7 @@
     <Compile Include="DepositsReport.cs" />
     <Compile Include="Elixir.cs" />
     <Compile Include="FullReport.cs" />
+    <Compile Include="HighTransferHandler.cs" />
     <Compile Include="IAccount.cs" />
     <Compile Include="IElixirBank.cs" />
     <Compile Include="IInterest.cs" />
@@ -66,7 +67,9 @@
     <Compile Include="Payout.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StandardTransferHandler.cs" />
     <Compile Include="Transfer.cs" />
+    <Compile Include="TransferHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

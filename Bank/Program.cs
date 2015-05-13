@@ -9,8 +9,8 @@ namespace Bank
     {
         static void Main(string[] args)
         {
-            //OperationsReportsTest();
-            ElixirTest();
+            OperationsReportsTest();
+            //ElixirTest();
 
             Console.ReadKey();
         }
@@ -29,13 +29,13 @@ namespace Bank
             string owner2AccountNum = owner2.OpenAccount();
             Console.WriteLine("Account with number {0} created", owner2AccountNum);
 
-            bank.CreatePayment(owner1AccountNum, 1000);
+            bank.CreatePayment(owner1AccountNum, 21000);
             Console.WriteLine("\nOwner1 payment, balance: {0}", bank.GetAccount(owner1AccountNum).Balance);
 
             bank.CreatePayout(owner1AccountNum, 100);
             Console.WriteLine("Owner1 payout, balance: {0}", bank.GetAccount(owner1AccountNum).Balance);
 
-            bank.CreateTransfer(owner1AccountNum, owner2AccountNum, 500);
+            bank.CreateTransfer(owner1AccountNum, owner2AccountNum, 20500);
             Console.WriteLine("Transfer: owner1's balance: {0}; owner2's balance: {1}", bank.GetAccount(owner1AccountNum).Balance, bank.GetAccount(owner2AccountNum).Balance);
 
             string owner1DebtAccountNum = owner1.OpenDebtAccount(200);
@@ -88,7 +88,6 @@ namespace Bank
             bank2.CreateTransfer(owner2AccountNum, owner1AccountNum, 200);
             elixir.ExecuteTransfers();
             Console.WriteLine("Transfer 100 from o1 to o2, 200 from o2 to o1: owner1's balance: {0}; owner2's balance: {1}", bank1.GetAccount(owner1AccountNum).Balance, bank2.GetAccount(owner2AccountNum).Balance);
-
         }
 
     }
