@@ -14,11 +14,17 @@ namespace Bank
 
         public BankManager(string bankIdentifier)
         {
-            BankIdentifier = bankIdentifier;
+            if (bankIdentifier.Length == 4)
+                BankIdentifier = bankIdentifier;
+            else
+                throw new ArgumentException("Bank identifier must be 4 charachters lenght.", "bankIdentifier");
         }
 
         public Owner CreateOwner(string firstName, string lastName, string pesel)
         {
+            if (owners.ContainsKey(pesel))
+                throw new ArgumentException("Owner with PESEL " + pesel + " already exist.", "pesel");
+
             Owner owner = new Owner(firstName, lastName, pesel, BankIdentifier);
             owners.Add(pesel, owner);
 

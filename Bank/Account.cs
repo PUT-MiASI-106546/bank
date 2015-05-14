@@ -25,10 +25,17 @@ namespace Bank
 
         public void Withdraw(double amount)
         {
-            if (Balance >= amount)
-                Balance -= amount;
+            if (amount <= 0)
+            {
+                throw new OperationException("Invalid amount.");
+            }
             else
-                throw new OperationException("Account balance is too low.");
+            {
+                if (Balance >= amount)
+                    Balance -= amount;
+                else
+                    throw new OperationException("Account balance is too low.");
+            }          
         }
 
         public void Deposit(double amount)

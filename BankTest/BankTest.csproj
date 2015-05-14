@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Integration\ElixirTest.cs" />
+    <Compile Include="Integration\OperationsTest.cs" />
     <Compile Include="Unit\AccountTest.cs" />
     <Compile Include="Unit\AdvancedInterestTest.cs" />
+    <Compile Include="Unit\BankManagerTest.cs" />
     <Compile Include="Unit\DebtAccountTest.cs" />
     <Compile Include="Unit\LineInterestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,9 +66,7 @@
       <Name>Bank</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Integration\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

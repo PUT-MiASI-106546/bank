@@ -25,7 +25,7 @@ namespace Bank
 
         private void NotifyTaxOffice()
         {
-            Console.WriteLine("Zgloszenie do US: przelew powyzej 20 000");
+            Console.WriteLine("Notifying tax office: transfer above 20 000.");
         }
     }
 }

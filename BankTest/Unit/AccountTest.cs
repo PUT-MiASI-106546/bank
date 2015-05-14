@@ -33,7 +33,14 @@ namespace BankTest.Unit
         [ExpectedException(typeof(OperationException))]
         public void WithdrawTest_Exception()
         {
-            account.Withdraw(1100);
+            account.Withdraw(1000.01);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(OperationException))]
+        public void WithdrawTest_Exception2()
+        {
+            account.Withdraw(-0.01);
         }
 
         [TestMethod]
@@ -47,7 +54,7 @@ namespace BankTest.Unit
         [ExpectedException(typeof(OperationException))]
         public void DepositTest_Exception()
         {
-            account.Deposit(-10);
+            account.Deposit(-0.01);
         }
     }
 }
