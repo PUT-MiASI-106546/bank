@@ -43,33 +43,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account.cs" />
-    <Compile Include="AccountDecorator.cs" />
-    <Compile Include="AdvancedInterest.cs" />
+    <Compile Include="Accounts\Account.cs" />
+    <Compile Include="Accounts\AccountDecorator.cs" />
+    <Compile Include="Interests\AdvancedInterest.cs" />
     <Compile Include="BankManager.cs" />
-    <Compile Include="ChargesReport.cs" />
-    <Compile Include="DebtAccount.cs" />
-    <Compile Include="DepositsReport.cs" />
-    <Compile Include="Elixir.cs" />
-    <Compile Include="FullReport.cs" />
-    <Compile Include="HighTransferHandler.cs" />
-    <Compile Include="IAccount.cs" />
-    <Compile Include="IElixirBank.cs" />
-    <Compile Include="IInterest.cs" />
-    <Compile Include="IncomingTransfer.cs" />
-    <Compile Include="Interest.cs" />
-    <Compile Include="IOperation.cs" />
-    <Compile Include="IReport.cs" />
-    <Compile Include="LineInterest.cs" />
-    <Compile Include="OperationException.cs" />
-    <Compile Include="Owner.cs" />
-    <Compile Include="Payment.cs" />
-    <Compile Include="Payout.cs" />
+    <Compile Include="Reports\ChargesReport.cs" />
+    <Compile Include="Accounts\DebtAccount.cs" />
+    <Compile Include="Reports\DepositsReport.cs" />
+    <Compile Include="Elixir\Elixir.cs" />
+    <Compile Include="Reports\FullReport.cs" />
+    <Compile Include="Operations\HighTransferHandler.cs" />
+    <Compile Include="Accounts\IAccount.cs" />
+    <Compile Include="Elixir\IElixirBank.cs" />
+    <Compile Include="Interests\IInterest.cs" />
+    <Compile Include="Operations\IncomingTransfer.cs" />
+    <Compile Include="Interests\Interest.cs" />
+    <Compile Include="Operations\IOperation.cs" />
+    <Compile Include="Reports\IReport.cs" />
+    <Compile Include="Interests\LineInterest.cs" />
+    <Compile Include="Operations\OperationException.cs" />
+    <Compile Include="Owners\Owner.cs" />
+    <Compile Include="Operations\Payment.cs" />
+    <Compile Include="Operations\Payout.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StandardTransferHandler.cs" />
-    <Compile Include="Transfer.cs" />
-    <Compile Include="TransferHandler.cs" />
+    <Compile Include="Operations\StandardTransferHandler.cs" />
+    <Compile Include="Operations\Transfer.cs" />
+    <Compile Include="Operations\TransferHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
